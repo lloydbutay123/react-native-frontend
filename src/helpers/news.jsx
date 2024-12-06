@@ -1,0 +1,5 @@
+export const news = [
+    { id: 1, scope: 'PH News', image: require('../../assets/images/metromanila_pic01.jpg'), content: 'OFWs sa Israel, nakikipag-ugnayan sa Pamahalaan para sa mga Serbisyong Pangkabuhayan at Proteksyon', author: 'Juan Dela Cruz', authorProfile: '', date: 'May 30, 2024' },
+    { id: 2, scope: 'PH News', image: require('../../assets/images/metromanila_pic01.jpg'), content: 'OFWs sa Israel, nakikipag-ugnayan sa Pamahalaan para sa mga Serbisyong Pangkabuhayan at Proteksyon', author: 'Juan Dela Cruz', authorProfile: '', date: 'May 30, 2024' },
+    { id: 3, scope: 'PH News', image: require('../../assets/images/metromanila_pic01.jpg'), content: 'OFWs sa Israel, nakikipag-ugnayan sa Pamahalaan para sa mga Serbisyong Pangkabuhayan at Proteksyon', author: 'Juan Dela Cruz', authorProfile: '', date: 'May 30, 2024' },
+]
