@@ -1,17 +1,19 @@
-import { View, Text, ImageBackground, StyleSheet } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import globalStyles from '../../../styles/styles'
 import Reels from '../../../components/Reels'
+import Items from '../../../components/Items'
 
 export default function EcommerceScreen() {
   return (
-    <View style={globalStyles.screenContainer}>
+    <ScrollView style={globalStyles.screenContainer} showsVerticalScrollIndicator={false}>
       <Reels />
       <View style={styles.reelWrapper}>
         <ImageBackground style={styles.reelContainer} source={require('../../../../assets/images/AdBanner.png')} resizeMode='cover'>  
         </ImageBackground>
       </View>
-    </View>
+      <Items />
+    </ScrollView>
   )
 }
 

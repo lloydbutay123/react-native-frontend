@@ -24,6 +24,8 @@ export default function Landing({ navigation }) {
                 <Image style={styles.icon} source={require('../../../assets/images/circle-arrow-right-02.png')} />
               </Pressable>
             )}
+            showsHorizontalScrollIndicator={false}
+            nestedScrollEnabled={true} // Allow FlatList to scroll within ScrollView
           />
         </View>
       </ImageBackground>

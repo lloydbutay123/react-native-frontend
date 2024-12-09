@@ -8,8 +8,6 @@ export default function News() {
     <View style={styles.container}>
         <FlatList
             horizontal
-            showsHorizontalScrollIndicator={false}
-            nestedScrollEnabled={true} // Allow FlatList to scroll within ScrollView
             data={news}
             keyExtractor={(item) => item.id}
             renderItem={({item}) => (
@@ -36,6 +34,8 @@ export default function News() {
                 </View>
             )} 
             ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
+            showsHorizontalScrollIndicator={false}
+            nestedScrollEnabled={true} // Allow FlatList to scroll within ScrollView
          />
     </View>
   )

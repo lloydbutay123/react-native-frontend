@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AppNavigator from './src/navigation/AppNavigator';
 import * as SplashScreen from 'expo-splash-screen';
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { useFonts, Poppins_300Light ,Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import BottomTabNavigator from './src/components/BottomTabNavigator';
 
 export default function App() {
     const [fontsLoaded] = useFonts({
+        Poppins_300Light,
         Poppins_400Regular,
         Poppins_700Bold,
         Poppins_600SemiBold,

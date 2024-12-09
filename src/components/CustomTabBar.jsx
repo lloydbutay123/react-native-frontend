@@ -1,47 +1,49 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Pressable, StyleSheet, FlatList } from 'react-native';
 
 export default function CustomTabBar({ state, descriptors, navigation }) {
+  const renderTab = ({ item, index }) => {
+    const { options } = descriptors[item.key];
+    const label = options.tabBarLabel || item.name;
+
+    const isFocused = state.index === index;
+
+    const onPress = () => {
+      if (!isFocused) {
+        navigation.navigate(item.name);
+      }
+    };
+
+    return (
+      <Pressable
+        onPress={onPress}
+        style={[
+          styles.tab,
+          isFocused ? styles.activeTab : styles.inactiveTab,
+        ]}
+      >
+        <Text
+          style={[
+            styles.label,
+            isFocused ? styles.activeLabel : styles.inactiveLabel,
+          ]}
+        >
+          {label}
+        </Text>
+      </Pressable>
+    );
+  };
+
   return (
     <View style={styles.wrapper}>
-      <ScrollView
+      <FlatList
+        data={state.routes}
+        keyExtractor={(item) => item.key}
+        renderItem={renderTab}
         horizontal
-        contentContainerStyle={styles.container}
         showsHorizontalScrollIndicator={false} // Hide scroll indicator for better UX
-      >
-        {state.routes.map((route, index) => {
-          const { options } = descriptors[route.key];
-          const label = options.tabBarLabel || route.name;
-
-          const isFocused = state.index === index;
-
-          const onPress = () => {
-            if (!isFocused) {
-              navigation.navigate(route.name);
-            }
-          };
-
-          return (
-            <Pressable
-              key={route.key}
-              onPress={onPress}
-              style={[
-                styles.tab,
-                isFocused ? styles.activeTab : styles.inactiveTab,
-              ]}
-            >
-              <Text
-                style={[
-                  styles.label,
-                  isFocused ? styles.activeLabel : styles.inactiveLabel,
-                ]}
-              >
-                {label}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </ScrollView>
+        contentContainerStyle={styles.container}
+      />
     </View>
   );
 }
@@ -74,7 +76,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    lineHeight: 24,
     lineHeight: 24,
     fontFamily: 'Poppins_500Medium',
   },
